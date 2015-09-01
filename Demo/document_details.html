@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> TAS Lexis Review UI </title>
+	<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="tas_sys_setting.js"></script>
+	<script type="text/javascript" src="tas_xml_http_service.js"></script>
+	<script type="text/javascript" src="js_progress_bar.js"></script>
+	<script type="text/javascript" src="tas_document_db.js"></script>
+	<script type="text/javascript" src="tas_comparator_operation.js"></script>
+	<script type="text/javascript" src="tas_report_operation.js"></script>
+	<script type="text/javascript" src="tas_url_db.js"></script>
+	<script type="text/javascript">
+		function moveContent(px) {
+		    var top = $('#div_process').position().top;
+		    $("#div_process").css("top", top+px);
+		}
+
+		$(document).keydown(function(e){
+    			if (e.keyCode == 38) { 
+           			moveContent(-5);
+               		}
+                   	if (e.keyCode == 40) { 
+                          	moveContent(5);
+                        }
+                });
+
+	</script>
+	<link rel="stylesheet" href="css/style.css"/>
+	<!--<link rel="stylesheet" href="css/sub_tab.css"/>-->
+	<!--<link rel="stylesheet" href="css/web_slt_login.css"/>-->
+</head>
+<body onload="GetDocumentPage_Details();">
+	<div id="progress" class="progres_div_none">
+		<div id="label_div"></div>
+		<div id="child_div" class="sub_div">
+			<img src="icons/progressA.gif"/>
+		</div>
+	</div>
+	<div id="send_mail_div" class="pop_div" style="display:none;">
+	        <div id="close_div" onclick="hide_send_mail_div();" style="background-color:#00c7c9;color:#ffffff;cursor: pointer;font-family: trebuchet ms;height: 28px;   position: absolute;right: 0;width: 100%;text-align: center;z-index: 2000; border-radius:4px 4px 0 0;" >
+            	<span style="float: left; padding: 5px 10px; font-weight: bold; font-family: tahoma; font-size: 13px;">Select category and Mail recipient to send mail</span>
+	        	<span style="font-size:20px; float:right; padding:7px;"><img src="icons/closeA.png" /></span>
+	        </div>
+	        <div id='view_data' class="pop_containt1">
+	        	<div id="document_list" style="width:47%;float:left;height:93%;margin-top:23px;pading-left:10px; border-right:1px solid #d7d7d7; margin-right:10px;">
+	        		<span class="pop_text" style="margin-left:-10px;"><strong>Category name</strong></span></br>
+                    <input type="checkbox" name="doc_name[]" value="m_a"><span class="pop_text">M &amp; A</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="banking_finance"><span class="pop_text">B &amp; F</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="business_law"><span class="pop_text">Business Law</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="california_business_entity_selection_formation"><span class="pop_text">CA Bus Entity</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="combined_california_general_business_law"><span class="pop_text">Combined Bus Entity Selection</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="commercial_bankrtupcy"><span class="pop_text">Bankruptcy</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="corporate_counsel"><span class="pop_text">Corp Counsel</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="intellectual_property"><span class="pop_text">IP</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="labor_employment"><span class="pop_text">L &amp; E</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="ny_business_commercial"><span class="pop_text">NY B &amp; C</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="real_estate"><span class="pop_text">Real Estate</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="securities_capital_markets"><span class="pop_text">S &amp; CM</span></br>
+	        		<input type="checkbox" name="doc_name[]" value="texas_business_commercial"><span class="pop_text">Texas B &amp; C</span></br>
+
+			</div>
+			<div id="email_ids" class="pop_containt2">
+            	<span class="pop_text" style="margin-left:-10px;"><strong>Mail List</strong></span></br>
+				<input type="checkbox" name="mailId[]" value="bflinks@Lexisnexis.com"><span class="pop_text">bflinks@Lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="bllinks@lexisnexis.com"><span class="pop_text">bllinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="malinks@lexisnexis.com"><span class="pop_text">malinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="relinks@lexisnexis.com"><span class="pop_text">relinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="scmlinks@lexisnexis.com"><span class="pop_text">scmlinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="cabeflinks@lexisnexis.com"><span class="pop_text">cabeflinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="cagblinks@lexisnexis.com"><span class="pop_text">cagblinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="cclinks@lexisnexis.com"><span class="pop_text">cclinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="txlinks@lexisnexis.com"><span class="pop_text">txlinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="cblinks@lexisnexis.com"><span class="pop_text">cblinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="iplinks@lexisnexis.com"><span class="pop_text">iplinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="lelinks@lexisnexis.com"><span class="pop_text">lelinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="NYLinks@lexisnexis.com"><span class="pop_text">NYLinks@lexisnexis.com</span></br>
+				<input type="checkbox" name="mailId[]" value="madan.pandit@tas.in"><span class="pop_text">madan.pandit@tas.in</span></br>
+				<input type="checkbox" name="mailId[]" value="tapas.ranjan@tas.in"><span class="pop_text">tapas.ranjan@tas.in</span></br>
+				<input type="checkbox" name="mailId[]" value="aref.rahman@tas.us.com"><span class="pop_text">aref.rahman@tas.us.com</span></br>
+			</div>
+			<!--<button id="mail_action" onclick="mail_action();" style="float:right;margin-top: 15px;margin-right: 10px;">Send Mail</button>-->
+            <div id="mail_action" class="dashboard_tab" onclick="mail_action();" style="float:right;margin-right:25px;">Send mail</div>
+	        </div>
+	</div>
+
+	<div id="url_process_img" class="loader" style="display:none;">
+		<img src="icons/progressA.gif"/>
+	</div>
+	<div class="main_container">
+		<div class="header_top">
+			<div class="logo_tab">
+				<span><img src="images/TAS_webprofiler_logo.png"/></span>
+			</div>
+			<div class="batch_holder">
+				<div style="float:left;margin:-3px 9px 0px 0px;" id="send_mail_popup" class="dashboard_tab">
+					<span onclick="send_mail_popup();">Send Mail</span>
+				</div>
+				<!--<div style="float:left;margin:-3px 9px 0px 0px;" id="send_mail" class="dashboard_tab">
+					<span onclick="download_all_result();">Send Mail</span>
+				</div>-->
+				<div style="float:left;margin:-3px 9px 0px 0px;" id="download_all" class="dashboard_tab">
+					<span onclick="download_all();">Dowload All</span>
+				</div>
+				<div style="float:left;margin:-3px 9px 0px 0px;" id="process_url" class="dashboard_tab">
+					<span onclick="process_all_url();">Process</span>
+					<!--<span onclick="javascript:void(0);">Process</span>-->
+				</div>
+				<div style="float:left;margin:-3px 9px 0px 0px;" id="dashboard" class="dashboard_tab">
+					<span onclick="show_dashboard();">Dashboard</span>
+				</div>
+				<div style="float:left;margin:-3px 9px 0px 0px;display:none;" id="processed" class="dashboard_tab">
+					<span onclick="show_processed();">URL View</span>
+				</div>
+                		<div style="float:left;margin:-3px 9px 0px 0px;display:none;" id="download_report" class="dashboard_tab">
+					<span onclick="download_report();">Download</span>
+				</div>
+                		<div style="float:left;margin:-3px 9px 0px 0px;" id="download_xls" class="dashboard_tab">
+					<span onclick="download_xls();">Download</span>
+				</div>
+				<div class="batch">
+					<select id="batch_select" onchange="show_data();" style="height: 23px; border:1px solid #d7d7d7;">
+						<option value="m_a">M &#38; A</option>
+						<option value="banking_finance">Banking and Finance</option>
+						<option value="business_law">Business Law</option>
+						<option value="california_business_entity_selection_formation">California Business Entity Selection and Formation</option>
+						<option value="combined_california_general_business_law">Combined California -General Business Law</option>
+						<option value="commercial_bankrtupcy">Commercial Bankrtupcy</option>
+						<option value="corporate_counsel">Corporate Counsel</option>
+						<option value="intellectual_property">Intellectual Property</option>
+						<option value="labor_employment">Labor and Employment</option>
+						<option value="ny_business_commercial">NY Business and Commercial</option>
+						<option value="real_estate">Real Estate</option>
+						<option value="securities_capital_markets">Securities and Capital Markets</option>
+						<option value="texas_business_commercial">Texas Business and Commercial</option>
+					</select>
+				</div>
+				
+				<div class="cs_logout" id="cs_logout" style="margin:-22px 5px 0 0;">
+					<label id="lbluser_name" class="lbluser_name"></label>
+					<a id="cmdlogout" href="javascript:Go_To_Login();">Logout</a>
+				</div>
+			</div>
+		</div>
+		<!--  ---------------------------------------------------Process View Tab-------------------------------------------------------    -->
+		<div class="cs_main_div" id="div_process" style="overflow: auto;">
+			<div class="cs_DgtableA">
+				<table id="dg_tableA" class="doc_master_tableA"  border="0" style="width:100%;word-break: break-all;" cellspacing="0" cellpading="0">
+				</table>
+			</div>
+		</div>
+		<!--  ---------------------------------------------------Report View Tab-------------------------------------------------------    -->
+		<div class="cs_main_div" id="div_report_sec" style="overflow: auto;display:none;">
+			<div class="cs_DgtableA">
+		        	<table id="dg_tableB" class="doc_master_tableA"  border="0" style="width:100%;" cellspacing="0" cellpading="0">
+		                </table>
+		        </div>
+		        <div style="width: 100%; text-align: center; background-color: rgb(213, 213, 213); height: 22px; padding-top: 6px; font-weight: bold; font-size: 13px;"><span>6 week trend as of 18-May-2015</span></div>
+			<div class="cs_DgtableA">
+		        	<table id="dg_tableB_2" class="doc_master_tableA"  border="0" style="width:100%;" cellspacing="0" cellpading="0">
+		                </table>
+		        </div>
+	        </div>
+
+
+
+		<!------------------------------------------------------------------------------------------------------------------------- ---->
+		<div class="cs_main_div" id="div_report" style="display:none;">
+			<div class="cs_left_content_report" id="div_tableB_report">
+			</div>
+			<div class="cs_center_content">
+			</div>
+			<div class="cs_right_content_report">
+				<div class="cs_report_upper_right_pie" id="div_report_table">
+				</div>
+			</div>
+		</div>
+		<!-----------------------------------------------------page content ends------------------------------------------------------------>
+		<div class="cs_bottom_div">
+			<div class="select_all" style="" id="select_all">
+				<input type="checkbox" name="check_all" id="selecctall" onclick="select_deselect_all()">
+			        <span style="color:white;">Select All</span>
+			</div>
+			<div class="batch">
+				<select id="response_type" class="dashboard_drop" onchange="filter_data_response();" style="height: 23px; border:1px solid #d7d7d7;">
+					<option value="all">All</option>
+					<option value="Success">Success</option>
+					<option value="Redirect (other)">Redirect(Other)</option>
+					<option value="Redirect (Login)">Redirect(Login)</option>
+					<option value="Login (Lexis)">Login (Lexis)</option>
+					<option value="">Blank</option>
+					<option value="Fail">Fail</option>
+					<option value="Unresolved">Unresolved</option>
+				</select>
+			</div>
+			<div id="div_report_operation" class="cs_div_download_report" style="display:none;">
+				<div class="tab_inactive1" style="display:none" >
+					<form id="dwnreport" method="post" style="border:none" action="download_pdf.php">
+						<input type="text" style= "width:0px; border:none"><label onclick="this.form.submit()">Download</label></input>
+						<input type="hidden" name="MyXml" id="excel_path1"/>
+					</form>
+				</div>
+				<div class="search_Divs_new">
+					<ul>
+						<li onclick="call_cgi_generate_report(event);">Download Report</li>
+						<li onclick="show_report_for_batches();">Submit</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

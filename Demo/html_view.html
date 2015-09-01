@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta content="utf-8" http-equiv="encoding">
+	    <title> TAS Notifications </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="css/sub_tab.css"/>
+		<link rel="stylesheet" href="css/autocomplete.css"/>
+
+		<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="jquery.autocomplete-min.js"></script>
+		<script type="text/javascript" src="tas_sys_setting.js"></script>
+		<script type="text/javascript" src="tas_html_db.js"></script>
+		<script type="text/javascript" src="tas_html_cgi_service.js"></script>
+		<script type="text/javascript" src="jqueryAjax.js"></script>
+		<script type="text/javascript" src="doc_ref.js"></script>
+		<script type="text/javascript" src="js_progress_bar.js"></script>
+	</head>
+	<body onload="GetHTMLPage_Details();">
+		<div id="progress" class="progres_div_none">
+			<div id="label_div">
+			</div>
+			<div id="child_div" class="sub_div">
+				<img src="icons/progressA.gif"/>
+			</div>
+		</div> 
+
+		<div class="main_container">
+			<div class="header_top">
+				<div class="logo_tab">
+					<span><img src="images/TAS_webprofiler_logo.png"/></span>
+				</div>
+				<div class="cs_logout">
+					<label id="lbluser_name" class="lbluser_name"> </label>
+					<a id="cmdlogout" href="javascript:Go_To_Login();">Logout</a>
+				</div>
+			</div>
+		<!--  ---------------------------------------------------Nav tab start------------------------------------------------------   -->
+			<div class="header_main">
+				<div class="cs_div_batch_name" style="display:none">
+					<nav id="">
+						<ul id="primaryNavBar">
+							<li class="expandable site7" onclick="get_main_tab('tab_1')"> <a id='tab_1' class="menuHead active" href="javascript:void(0)">Company Profile</a></li>
+							<li id="tab_OND" class="expandable site7" onclick="get_main_tab('tab_2')" style="display:none;"> <a id='tab_2' class="menuHead" href="javascript:void(0)">People Profiles</a>
+							<li id="tab_PF_IM" class="expandable site7" onclick="get_main_tab('tab_3')" style="display:none;"> <a id='tab_3' class="menuHead" href="javascript:void(0)">Portfolio</a>
+						</ul>
+					</nav>
+				</div>
+				<div class="cs_div_ws_name">
+					<label class="cs_lblws_name" style="display:none;" > </label>
+					<label id="lblws_name" class="cs_lblws_name"></label>
+				</div>
+				<div class="cs_div_total_profile" style="display:none;">
+					<label class="cs_lblws_name">Total Profiles: </label>
+					<label id="lbltotal_profiles" class="cs_lblws_name"></label>
+				</div>
+				<div class="tab_inactive1" style="display:none" >
+					<form id="dwnreport" method="post" style="border:none" action="download_pdf.php">
+						<input type="text" style= "width:0px; border:none"><label onclick="this.form.submit()">Download</label></input>
+						<input type="hidden" name="MyXml" id="excel_path1"/>
+					</form>
+				</div>
+				<div class="cs_div_validation">
+					<div class="search_Divs_new2">
+						<ul>
+							<li onclick="Back_To_DocumentPage()"> Back </li>
+							<li onclick="Update_tableB_by_colH()" style="display:none;"> Accept </li>
+							<li onclick="call_cgi_generate_report(event);" style="display:none;"  > Download Excel </li>
+							<li onclick="show_feedback_comment_box(this);" style="display:none;">Feedback</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		<!--  ---------------------------------------------------page content start-------------------------------------------------------    -->
+			<div class="cs_main_div">
+				<div class="cs_left_content" id="div_tab_PE">
+					<div class="cs_oper_div1" id="section_index_div">
+                        <!--div style="float:left;"><img src="icons/prev.png" onclick="go_to_prev_Section()"></img></div>
+                        <div style="float:right;margin-right:7px;"><img src="icons/next.png" onclick="go_to_next_section()"></img></div-->
+					</div>
+                     <!--<div class="cs_oper_div" id = "cs_oper_div_dynamic" >
+                        <label class="cs_lblws_name" id = "cs_lblws_name_tableD"> </label>
+                    </div>-->
+					<!--<div id="div_dg_tableD" class="cs_left_upper_half_P">
+					</div>-->
+				</div>
+				<div class="cs_center_content">
+				</div>
+				<div class="cs_right_content" id="profile_1">
+				</div>
+			</div> 
+		<!-----------------------------------------------------page content ends------------------------------------------------------------>
+			<div class="cs_bottom_div">
+				<div style="width:38.7%;float:left;height:100%;">
+				</div>
+				<div style="width:10px;float:left;height: 100%;background:url(images/center_bg.png) repeat-y scroll 0 0 transparent;">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

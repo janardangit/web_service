@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> TAS Lexis Review UI </title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/sub_tab.css"/>
+	<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="tas_sys_setting.js"></script>
+	<script type="text/javascript" src="tas_login_db.js"></script>
+	<script type="text/javascript">
+		function ShortcutKeys(event)
+		{
+			if (event.keyCode == 13)
+			{
+				restore_tableA_by_colA();
+			}
+		}
+	</script>
+</head>
+<body onload="Set_Focus_txtuser_id();">
+	<div class="main_container">
+		<div class="header_top">
+			<div class="logo_tab">
+				<span><img src="images/TAS_webprofiler_logo.png"/></span>
+			</div>
+		</div>
+		<!-- ***************page content start************* -->
+		<div class="main_content_login">
+			<div class="slt_box_B">
+				<div class="slt_box_mid_leftB">
+					<div class="slt_box_mid_bgB"> Login</div>
+					<div class="login_rows"><p>User Name</p></div>
+					<div class="login_rows"><input id="txtuser_id" type="text" class="login_input" /></div>
+					<div class="login_rows"><p>Password</p></div>
+					<div class="login_rows"><input id="txtuser_passwd" type="password" class="login_input"/></div>
+					<div class="login_rows"><input name="Login" type="button" value="Login" class="myButton" onclick="restore_tableA_by_colA();" /></div>
+					<div class="slt_box_contentB"></div>
+				</div>
+			</div>
+		</div>
+		<!-- ***************page content end************* -->
+		<div class="cs_bottom_div">
+			<div class="copyRight">Copyright © 2013 TAS All Rights Reserved.</div>
+		</div>
+	</div>
+</body>
+</html>

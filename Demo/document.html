@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> TAS Notifications </title>
+	<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="tas_sys_setting.js"></script>
+	<script type="text/javascript" src="tas_xml_http_service.js"></script>
+	<script type="text/javascript" src="js_progress_bar.js"></script>
+	<script type="text/javascript" src="tas_document_db.js"></script>
+	<script type="text/javascript" src="tas_comparator_operation.js"></script>
+	<script type="text/javascript" src="tas_report_operation.js"></script>
+	<script type="text/javascript" src="jqueryAjax.js"></script>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/sub_tab.css"/>
+</head>
+<body onload="GetUrlPage_Details();">
+	<div id="progress" class="progres_div_none">
+		<div id="label_div"></div>
+		<div id="child_div" class="sub_div">
+			<img src="icons/progressA.gif"/>
+		</div>
+	</div>
+	<div class="main_container">
+		<div class="header_top">
+			<div class="logo_tab">
+				<span><img src="images/TAS_webprofiler_logo.png"/></span>
+			</div>
+			<div class="cs_logout">
+				<label id="lbluser_name" class="lbluser_name"></label>
+				<a id="cmdlogout" href="javascript:Go_To_Login();">Logout</a>
+			</div>
+		</div>
+		<!--  ---------------------------------------------------Nav tab start------------------------------------------------------   -->
+		<div class="header_main">
+			<div class="cs_div_batch_name" style="display:none;">
+				<nav id="">
+					<ul id="primaryNavBar">
+						<li class="expandable site7" onclick="get_main_table_type('tab1')"> <a id='tab1' class="menuHead active" href="javascript:void(0)">Home</a></li>
+						<li class="expandable site7" onclick="get_main_table_type('tab2')" style="display:none;"> <a id='tab2' class="menuHead" href="javascript:void(0)">Report</a>
+					</ul>
+				</nav>
+			</div>
+			<div class="cs_div_select_ref" id="div_batch_name">
+				<!--<span class="cs_lblws_name2">Case Name:</span>-->
+				<span class = "cs_lblws_name2" id = "casename"></span> 
+				<div class = "cs_div_select_ref" style="display:none;">
+				<select name="docBatch" id="docBatch" class="select_batch_tab" style="valign:middle;">
+					<option>1</option>
+				</select></div>
+			</div>
+			<div class="cs_div_download">
+				<!--<div class="search_Divs_new" style="display:none;">
+					<ul>
+						<li>
+							<form id="dwnoutput" method="post" action="download_excel.php">
+								<input type="submit" value='Download Excel'/>
+								<input type="hidden" name="MyExcel" id="excel_path"/>
+							</form>
+						</li>
+					</ul>
+				</div>-->
+				<div class="search_Divs_new">
+					<ul>
+						<li onclick="new_call_cgi_generate_report()">Generate Report (s)</li>
+						<li onclick="new_download_report()">Download Report</li>
+						<li onclick="Back_To_Document_DetailPage()"> Back </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--  ---------------------------------------------------Process View Tab-------------------------------------------------------    -->
+		<div class="cs_main_div" id="div_process">
+			<div class="cs_DgtableB">
+				<table id="dg_tableB" class="table_new"  border="0" width="100%" align="centre" cellspacing="0" cellpading="0">
+				</table>
+			</div>
+		</div>
+		<!--  ---------------------------------------------------Report View Tab-------------------------------------------------------    -->
+		<div class="cs_main_div" id="div_report" style="display:none;">
+			<div class="cs_left_content_report" id="div_tableB_report">
+			</div>
+			<div class="cs_center_content">
+			</div>
+			<div class="cs_right_content_report">
+				<div class="cs_report_upper_right_pie" id="div_report_table">
+				</div>
+			</div>
+		</div>
+		<!-----------------------------------------------------page content ends------------------------------------------------------------>
+		<div class="cs_bottom_div">
+			<div id="div_report_operation" class="cs_div_download_report" style="display:none;">
+				<div class="tab_inactive1" style="display:none" >
+					<form id="dwnreport" method="post" style="border:none" action="download_pdf.php">
+						<input type="text" style= "width:0px; border:none"><label onclick="this.form.submit()">Download</label></input>
+						<input type="hidden" name="MyXml" id="excel_path1"/>
+					</form>
+				</div>
+				<div class="search_Divs_new">
+					<ul>
+						<li onclick="call_cgi_generate_report(event);">Download Report</li>
+						<li onclick="show_report_for_batches();">Submit</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

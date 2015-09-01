@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> TAS Lexis Review UI </title>
+	<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="tas_sys_setting.js"></script>
+	<script type="text/javascript" src="tas_xml_http_service.js"></script>
+	<script type="text/javascript" src="js_progress_bar.js"></script>
+	<script type="text/javascript" src="tas_document_db.js"></script>
+	<script type="text/javascript" src="tas_comparator_operation.js"></script>
+	<script type="text/javascript" src="tas_report_operation.js"></script>
+	<script type="text/javascript" src="tas_url_db.js"></script>
+	<link rel="stylesheet" href="css/style.css"/>
+	<!--<link rel="stylesheet" href="css/sub_tab.css"/>-->
+	<!--<link rel="stylesheet" href="css/web_slt_login.css"/>-->
+</head>
+<body onload="GetDocumentPage_Details();">
+	<div id="progress" class="progres_div_none">
+		<div id="label_div"></div>
+		<div id="child_div" class="sub_div">
+			<img src="icons/progressA.gif"/>
+		</div>
+	</div>
+	<div class="main_container">
+		<div class="header_top">
+			<div class="logo_tab">
+				<span><img src="images/TAS_webprofiler_logo.png"/></span>
+			</div>
+			<div class="batch_holder">
+				<div style="float:left;margin:-3px 9px 0px 0px;" id="process_url" class="dashboard_tab">
+					<span onclick="">Process</span>
+				</div>
+				<div style="float:left;margin:-3px 9px 0px 0px;" id="dashboard" class="dashboard_tab">
+					<span onclick="show_dashboard();">Dashboard</span>
+				</div>
+				<div style="float:left;margin:-3px 9px 0px 0px;display:none;" id="processed" class="dashboard_tab">
+					<span onclick="show_processed();">URL Report</span>
+				</div>
+                <div style="float:left;margin:-3px 9px 0px 0px;" id="download_xls" class="dashboard_tab">
+					<span onclick="download_xls();">Download</span>
+				</div>
+				<div class="batch">
+					<select id="batch_select" onchange="show_data();" style="height: 23px; border:1px solid #d7d7d7;">
+						<option value="m_a">M &#38; A</option>
+						<option value="banking_finance">Banking and Finance</option>
+						<option value="business_law">Business Law</option>
+						<option value="california_business_entity_selection_formation">California Business Entity Selection and Formation</option>
+						<option value="combined_california_general_business_law">Combined California -General Business Law</option>
+						<option value="commercial_bankrtupcy">Commercial Bankrtupcy</option>
+						<option value="corporate_counsel">Corporate Counsel</option>
+						<option value="intellectual_property">Intellectual Property</option>
+						<option value="labor_employment">Labor and Employment</option>
+						<option value="ny_business_commercial">NY Business and Commercial</option>
+						<option value="real_estate">Real Estate</option>
+						<option value="securities_capital_markets">Securities and Capital Markets</option>
+						<option value="texas_business_commercial">Texas Business and Commercial</option>
+					</select>
+				</div>
+				
+				<div class="cs_logout" id="cs_logout" style="margin:-22px 5px 0 0;">
+					<label id="lbluser_name" class="lbluser_name"></label>
+					<a id="cmdlogout" href="javascript:Go_To_Login();">Logout</a>
+				</div>
+			</div>
+		</div>
+		<!--  ---------------------------------------------------Process View Tab-------------------------------------------------------    -->
+		<div class="cs_main_div" id="div_process" style="overflow: auto;">
+			<div class="cs_DgtableA">
+				<table id="dg_tableA" class="doc_master_tableA"  border="0" style="width:100%;" cellspacing="0" cellpading="0">
+				</table>
+			</div>
+		</div>
+		<!--  ---------------------------------------------------Report View Tab-------------------------------------------------------    -->
+		<div class="cs_main_div" id="div_report_sec" style="overflow: auto;display:none;">
+			<div class="cs_DgtableA">
+		        	<table id="dg_tableB" class="doc_master_tableA"  border="0" style="width:100%;" cellspacing="0" cellpading="0">
+		                </table>
+		        </div>
+	        </div>
+
+
+
+		<!------------------------------------------------------------------------------------------------------------------------- ---->
+		<div class="cs_main_div" id="div_report" style="display:none;">
+			<div class="cs_left_content_report" id="div_tableB_report">
+			</div>
+			<div class="cs_center_content">
+			</div>
+			<div class="cs_right_content_report">
+				<div class="cs_report_upper_right_pie" id="div_report_table">
+				</div>
+			</div>
+		</div>
+		<!-----------------------------------------------------page content ends------------------------------------------------------------>
+		<div class="cs_bottom_div">
+			<div id="div_report_operation" class="cs_div_download_report" style="display:none;">
+				<div class="tab_inactive1" style="display:none" >
+					<form id="dwnreport" method="post" style="border:none" action="download_pdf.php">
+						<input type="text" style= "width:0px; border:none"><label onclick="this.form.submit()">Download</label></input>
+						<input type="hidden" name="MyXml" id="excel_path1"/>
+					</form>
+				</div>
+				<div class="search_Divs_new">
+					<ul>
+						<li onclick="call_cgi_generate_report(event);">Download Report</li>
+						<li onclick="show_report_for_batches();">Submit</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

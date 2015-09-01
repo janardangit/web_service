@@ -1,0 +1,249 @@
+@charset "UTF-8";
+var, ul, li, label, nav, section{
+    border: 0 none;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0 none;
+    padding: 0;
+    text-align: left;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+a img, *:link img, *:visited img {
+    border: 0 none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ol, ul {
+    list-style: none outside none;
+}
+
+#primaryNav {
+    background: none repeat scroll 0 0%, -moz-linear-gradient(center top , #626265 0px, #39393B 100%) repeat scroll 0 0 transparent;
+    box-shadow: 0 1px 0 rgba(160, 160, 160, 0.75) inset, 0 10px 0 #FFFFFF;
+}
+#primaryNavBar, #customPrimaryNavBar {
+    margin: 0 auto;
+    width: 100%; /* dil changes */
+}
+#primaryNavBar i, #customPrimaryNavBar i {
+    display: none;
+}
+#primaryNavBar > li, #customPrimaryNavBar > li {
+    float: left;
+    position: relative;
+}
+#primaryNavBar > li > a, #customPrimaryNavBar > li > a {
+    color: #FFFFFF;
+    float: left;
+    font-family: franklin-gothic-urw-cond,"Helvetica Condensed Bold",Helvetica,Arial,sans-serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    height: 5.5%;
+    left: -1px;
+    line-height: 41px !important;
+    padding: 0 12px;
+    position: relative;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8);
+}
+#primaryNavBar > li > a.active, #customPrimaryNavBar > li > a.active, #primaryNavBar > li > a:hover, #customPrimaryNavBar > li > a:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 1px -1px 1px #2A2A2A inset, -1px -1px 1px #2A2A2A inset, 2px -1px 1px -1px #5B5B5E, -2px -1px 1px -1px #5B5B5E;
+    text-decoration: none;
+}
+#primaryNavBar > li.site1, #customPrimaryNavBar > li.site1 {
+    margin-left: 115px;
+}
+#primaryNavBar > li.site1 a, #customPrimaryNavBar > li.site1 a {
+    background: url("images/icon-sprite.png") no-repeat scroll 18px -842px transparent;
+    text-indent: -9000px;
+    width: 30px;
+}
+#primaryNavBar > li.site1 a.active, #customPrimaryNavBar > li.site1 a.active, #primaryNavBar > li.site1 a:hover, #customPrimaryNavBar > li.site1 a:hover {
+    background: url("images/icon-sprite.png") no-repeat scroll 18px -586px transparent;
+    box-shadow: none;
+}
+#primaryNavBar > li.site7, #customPrimaryNavBar > li.site7 {
+    max-width: 150px;
+}
+#primaryNavBar > li.site7 .menuWrapper, #customPrimaryNavBar > li.site7 .menuWrapper {
+    width: 200px;
+}
+#primaryNavBar > li.site7 #topCategoriesNav, #customPrimaryNavBar > li.site7 #topCategoriesNav, #primaryNavBar > li.site7 #moreCategoriesNav, #customPrimaryNavBar > li.site7 #moreCategoriesNav {
+    border-bottom: 1px solid #DDDDDD;
+    box-shadow: 0 1px 0 #FFFFFF;
+    color: #768696;
+    float: left;
+    font-family: franklin-gothic-urw-cond,"Helvetica Condensed Bold",Helvetica,Arial,sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 0 10px;
+    padding: 5px 0 10px 2px;
+}
+#primaryNavBar > li.site7 #topCategoriesNav, #customPrimaryNavBar > li.site7 #topCategoriesNav {
+    width: 220px;
+}
+#primaryNavBar > li.site7 #moreCategoriesNav, #customPrimaryNavBar > li.site7 #moreCategoriesNav {
+    width: 460px;
+}
+#primaryNavBar > li.site3, #customPrimaryNavBar > li.site3 {
+    max-width: 68px;
+}
+#primaryNavBar > li.site3 .menuWrapper, #customPrimaryNavBar > li.site3 .menuWrapper {
+    width: 500px;
+}
+#primaryNavBar > li.site4, #customPrimaryNavBar > li.site4 {
+    max-width: 99px;
+}
+#primaryNavBar > li.site53, #customPrimaryNavBar > li.site53 {
+    max-width: 85px;
+}
+#primaryNavBar > li.site53 .menuWrapper, #customPrimaryNavBar > li.site53 .menuWrapper {
+    width: 500px;
+}
+#primaryNavBar > li.site39, #customPrimaryNavBar > li.site39 {
+    max-width: 80px;
+}
+#primaryNavBar > li.siteM, #customPrimaryNavBar > li.siteM {
+    max-width: 130px;
+}
+#primaryNavBar > li.expandable .menuHead, #customPrimaryNavBar > li.expandable .menuHead {
+    height: 5.5%;
+    padding-right: 5px;
+}
+#primaryNavBar > li.expandable .menuHead.active, #customPrimaryNavBar > li.expandable .menuHead.active {
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 5.5%;
+}
+#primaryNavBar > li.expandable .menuHead span, #customPrimaryNavBar > li.expandable .menuHead span {
+    background: url("images/icon-sprite.png") no-repeat scroll -26px -653px transparent;
+    display: inline-block;
+    height: 10px;
+    margin-left: 1px;
+    width: 10px;
+}
+#primaryNavBar > li.expandable .menuWrapper, #customPrimaryNavBar > li.expandable .menuWrapper {
+    background: none repeat scroll 0 0%, -moz-linear-gradient(center top , #6B6D6E 0px, #5D5D5D 100%) repeat scroll 0 0 transparent;
+    border-radius: 0 3px 3px 3px;
+    display: none;
+    padding: 5px 5px 6px;
+    position: absolute;
+    top: 38px;
+    z-index: 5800000;
+}
+#primaryNavBar > li.expandable .menuWrapper nav, #customPrimaryNavBar > li.expandable .menuWrapper nav {
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 1px solid rgba(86, 87, 88, 0.8);
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+    padding: 15px 5px 20px;
+}
+#primaryNavBar > li.expandable .menuWrapper nav:after, #customPrimaryNavBar > li.expandable .menuWrapper nav:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+#primaryNavBar > li.expandable .menuWrapper ul, #customPrimaryNavBar > li.expandable .menuWrapper ul {
+    float: left;
+}
+#primaryNavBar > li.expandable .menuWrapper ul li a, #customPrimaryNavBar > li.expandable .menuWrapper ul li a, #primaryNavBar > li.expandable .menuWrapper ul li.socialConnect, #customPrimaryNavBar > li.expandable .menuWrapper ul li.socialConnect {
+    border-bottom: 1px solid #DDDDDD;
+    box-shadow: 0 1px 0 #FFFFFF;
+    color: #000000;
+    display: inline-block;
+    float: left;
+    margin: 0 10px;
+    padding: 5px 0 5px 2px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFFFFF;
+    width: 175px;
+}
+#primaryNavBar li a {
+    font-family:Arial,"Helvetica Condensed Bold",Helvetica,sans-serif;
+    font-size: 12px !important;
+    font-weight: normal !important;]
+}
+#primaryNavBar li .menuWrapper nav ul li a {
+    font-size: 12px !important;
+    font-weight: normal !important;
+}
+#primaryNavBar > li.expandable .menuWrapper ul li a:hover, #customPrimaryNavBar > li.expandable .menuWrapper ul li a:hover {
+    background-color: #EEEEEE;
+    color: #860000;
+}
+#primaryNavBar > li.expandable .menuWrapper .timelineSets, #customPrimaryNavBar > li.expandable .menuWrapper .timelineSets {
+    display: none;
+}
+#primaryNavBar > li.expandable:hover .menuHead, #customPrimaryNavBar > li.expandable:hover .menuHead {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0%, -moz-linear-gradient(center top , #808182 0px, #6B6D6E 100%) repeat scroll 0 0 transparent;
+    border-color: #414141 #414141 -moz-use-text-color;
+    border-image: none;
+    border-radius: 3px 3px 0 0;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+    box-shadow: 2px -1px 3px -3px rgba(0, 0, 0, 0.8), 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+    height: 5.5%;
+    left: -1px;
+    line-height: 5.5%;
+    margin-top: -1px;
+    padding: 0 4px 0 11px;
+    position: relative;
+    text-decoration: none;
+    z-index: 5800001;
+}
+#primaryNavBar > li.expandable:hover .menuHead span, #customPrimaryNavBar > li.expandable:hover .menuHead span {
+    background: url("images/icon-sprite.png") no-repeat scroll -27px -629px transparent;
+}
+#primaryNavBar > li.expandable:hover .menuWrapper, #customPrimaryNavBar > li.expandable:hover .menuWrapper {
+    box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+    display: block;
+}
+#primaryNavBar > li.loginAction, #customPrimaryNavBar > li.loginAction {
+    float: right;
+    margin-left: 11px;
+    margin-right: 12px;
+    max-width: 248px;
+}
+#primaryNavBar > li.loginAction .menuHead, #customPrimaryNavBar > li.loginAction .menuHead {
+    color: #FFFFFF;
+    float: left;
+    font-family: franklin-gothic-urw-cond,"Helvetica Condensed Bold",Helvetica,Arial,sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    height: 41px;
+    line-height: 41px !important;
+    position: relative;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8);
+}
+#primaryNavBar > li.loginAction .menuHead .welcome, #customPrimaryNavBar > li.loginAction .menuHead .welcome {
+    background: none repeat scroll 0 0 transparent;
+    height: auto;
+    width: auto;
+}
+#primaryNavBar > li.loginAction:hover, #customPrimaryNavBar > li.loginAction:hover {
+    margin-left: 0;
+}
+#primaryNavBar > li.loginAction:hover .menuHead, #customPrimaryNavBar > li.loginAction:hover .menuHead {
+    box-shadow: -2px -1px 3px -3px rgba(0, 0, 0, 0.8), 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+    padding-right: 3px;
+}
+#primaryNavBar > li.loginAction:hover .menuHead .welcome, #customPrimaryNavBar > li.loginAction:hover .menuHead .welcome {
+    background: none repeat scroll 0 0 transparent;
+}
+#primaryNavBar > li.loginAction .menuWrapper, #customPrimaryNavBar > li.loginAction .menuWrapper {
+    border-radius: 3px 0 3px 3px;
+    right: 2px;
+    width: 260px;
+}
